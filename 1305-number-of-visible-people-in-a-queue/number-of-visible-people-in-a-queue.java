@@ -11,7 +11,7 @@ class Solution {
                 count++;
                 s.pop();    
             }
-            if(s.size()>0) count++;//means that we found the next greater element!
+            if(s.size()>0) count++;//most Important!
             ans[i]=count;
             s.push(arr[i]);
         }
