@@ -29,6 +29,7 @@ class Solution {
         root.right=temp;
         reverse(root.left);
         reverse(root.right);
+        //preorder traversal!
     }
     
 }
