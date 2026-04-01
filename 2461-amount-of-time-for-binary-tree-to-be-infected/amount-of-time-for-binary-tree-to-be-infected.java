@@ -8,11 +8,11 @@ class Pair {
 }
 
 class Solution {
-    TreeNode startNode;                          // FIX 1: removed static
-    HashMap<TreeNode, TreeNode> parent;          // FIX 1: removed static
+    TreeNode startNode;                          
+    HashMap<TreeNode, TreeNode> parent;          
 
     public int amountOfTime(TreeNode root, int start) {
-        parent = new HashMap<>();                // FIX 2: was "map = new HashMap<>()"
+        parent = new HashMap<>();               
         dfs(root, start);
         Queue<Pair> q = new LinkedList<>();
         HashSet<TreeNode> burned = new HashSet<>();
