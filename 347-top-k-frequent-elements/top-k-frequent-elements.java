@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.PriorityQueue;
-
 class Pair implements Comparable<Pair> {
     int ele;
     int freq;
@@ -25,13 +22,13 @@ class Solution {
         
         PriorityQueue<Pair> heap = new PriorityQueue<>(); // MinHeap
         for(int ele : map.keySet()) {
-            heap.add(new Pair(ele, map.get(ele))); // Fixed constructor call
+            heap.add(new Pair(ele, map.get(ele))); 
             if(heap.size() > k) 
                 heap.remove();
         }
         
         int[] ans = new int[k];
-        int idx = k - 1; // To maintain order if needed
+        int idx = k - 1; 
         while(heap.size() > 0) {
             Pair top = heap.remove();
             ans[idx--] = top.ele;
