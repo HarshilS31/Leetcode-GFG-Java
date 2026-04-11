@@ -23,6 +23,6 @@ class Solution {
         if(dp[i][res+sum]!=-1) return dp[i][res+sum];
         int add=ways(i+1,nums,res+nums[i],target-nums[i],dp);
         int sub=ways(i+1,nums,res-nums[i],target+nums[i],dp);
-        return add+sub;
+        return dp[i][res+sum]=add+sub;
     }
 }
