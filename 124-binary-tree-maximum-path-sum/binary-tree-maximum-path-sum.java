@@ -8,7 +8,7 @@
         if(leftLine>0) pathSum+=leftLine;      
         if(rightLine>0) pathSum+=rightLine;
         max=Math.max(max,pathSum);
-        return root.val+Math.max(rightLine,Math.max(0,leftLine));
+        return root.val+Math.max(0,Math.max(rightLine,leftLine));
     }
 
     public int maxPathSum(TreeNode root) { 
