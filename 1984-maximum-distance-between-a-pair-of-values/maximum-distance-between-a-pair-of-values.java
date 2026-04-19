@@ -9,7 +9,10 @@ class Solution {
                 j++;
 
             }
-            else i++;
+            else {
+                i++; j++;
+                
+            }
         }
         return ans;
 
