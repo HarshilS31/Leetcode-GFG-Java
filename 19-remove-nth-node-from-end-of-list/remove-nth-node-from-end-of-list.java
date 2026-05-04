@@ -13,15 +13,15 @@ class Solution {
         ListNode temp=new ListNode(0);
         temp.next=head;
         ListNode prev=temp;
-        ListNode fwd=temp;
+        ListNode nxt=temp;
         for(int i=0;i<=n;i++) {
-            fwd=fwd.next;
+            nxt=nxt.next;
 
         }
 
-        while(fwd!=null) {
+        while(nxt!=null) {
             prev=prev.next;
-            fwd=fwd.next;
+            nxt=nxt.next;
 
         }
         prev.next=prev.next.next;
