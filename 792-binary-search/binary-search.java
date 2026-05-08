@@ -1,0 +1,16 @@
+class Solution {
+    public int search(int[] nums, int target) {
+        int n=nums.length;
+        int lo=0;
+        int hi=n-1;
+        while(hi>=lo) {
+            int mid=lo+(hi-lo)/2;
+            if(nums[mid]==target) return mid;
+            else if(nums[mid]>target) hi=mid-1;
+            else lo=mid+1;
+        }
+        return -1;
+
+        
+    }
+}
