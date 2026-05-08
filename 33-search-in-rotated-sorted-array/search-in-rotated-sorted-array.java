@@ -1,31 +1,24 @@
 class Solution {
-    public int search(int[] arr, int target) {
-        int n = arr.length;
-        if (n == 0) return -1;
-        if (arr[0] == target) return 0;
-        if (arr[n - 1] == target) return n - 1;
-        int lo = 0, hi = n - 1;
-        while (lo <= hi) {
-            int mid = lo + (hi - lo) / 2;  
-            if (arr[mid] == target) return mid; 
-            // Check if left side is sorted
-            if (arr[lo] <= arr[mid]) {
-                // Left side is sorted
-                if (target >= arr[lo] && target < arr[mid]) {
-                    hi = mid - 1;
-                } else {
-                    lo = mid + 1;
+    public int search(int[] nums, int target) {
+        int lo=0;
+        int hi=nums.length-1;
+        while(hi>=lo) {
+            int mid=lo+(hi-lo)/2;
+            if(nums[mid]==target) return mid;
+            if(nums[lo]<=nums[mid]) {
+                if(target>=nums[lo] && target<nums[mid]) hi=mid-1;
+                else lo=mid+1;    
+            }
+            else {
+                if(target>nums[mid] && target<=nums[hi]) {
+                    lo=mid+1;
                 }
-            } else {
-                // Right side is sorted
-                if (target > arr[mid] && target <= arr[hi]) {
-                    lo = mid + 1;
-                } else {
-                    hi = mid - 1;
-                }
+                else hi=mid-1;
+
             }
         }
+        return -0001;
+
         
-        return -1;
     }
 }
