@@ -3,7 +3,7 @@ class Solution {
         int lo=0;
         int hi=0;
         for(int ele:weights) {
-            lo=Math.max(lo,ele);
+            lo=(ele>lo)?ele:lo;
             hi+=ele;    
         }
         int ans=hi;
