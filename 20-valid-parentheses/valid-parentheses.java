@@ -6,7 +6,6 @@ class Solution {
         for(int i=0;i<s.length();i++) {
             char c=s.charAt(i);
             if(c=='[' || c=='(' || c=='{') temp.push(c);
-            // else if(c==']' || c==')' || c=='}' && temp.size()==0) return false;
             else {
                 if(temp.size()==0) return false;
                 char top=temp.peek();
