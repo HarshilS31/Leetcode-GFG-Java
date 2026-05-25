@@ -11,7 +11,7 @@ class Solution {
     }
     boolean search(char[][] board,String word,int idx,int i,int j) {
         if(idx==word.length()) return true;
-        if(i<0 || j<0 || i>=board.length || j>=board[0].length || idx>=word.length() || board[i][j]=='$' || board[i][j]!=word.charAt(idx)) return false;
+        if(i<0 || j<0 || i>=board.length || j>=board[0].length || board[i][j]=='$' || board[i][j]!=word.charAt(idx)) return false;
         char temp=board[i][j];
         board[i][j]='$';
         for(int[] dir:directions) {
