@@ -1,17 +1,33 @@
+import java.util.Stack;
+
 class Solution {
     public long subArrayRanges(int[] nums) {
-        long sum=0;
-        for(int i=0;i<nums.length;i++) {
-            int max=nums[i];
-            int min=nums[i];
-            for(int j=i+1;j<nums.length;j++) {
-                if(nums[j]>max) max=nums[j];
-                if(nums[j]<min) min=nums[j];
-                sum+=max-min;    
+        int n = nums.length;
+        long totalSum = 0;
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i <= n; i++) {
+            while (!stack.isEmpty() && (i == n || nums[stack.peek()] < nums[i])) {
+                int mid = stack.pop();
+                int leftBound = stack.isEmpty() ? -1 : stack.peek();
+                int rightBound = i; 
+                long count = (long) (mid - leftBound) * (rightBound - mid);
+                totalSum += count * nums[mid];
             }
-            
+            stack.push(i);
         }
-        return sum;
+        stack.clear();
+        for (int i = 0; i <= n; i++) {
+            while (!stack.isEmpty() && (i == n || nums[stack.peek()] > nums[i])) {
+                int mid = stack.pop();
+                int leftBound = stack.isEmpty() ? -1 : stack.peek();
+                int rightBound = i;
+                
+                long count = (long) (mid - leftBound) * (rightBound - mid);
+                totalSum -= count * nums[mid];
+            }
+            stack.push(i);
+        }
         
+        return totalSum;
     }
 }
