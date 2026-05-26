@@ -12,17 +12,16 @@ class Solution {
     void bfs(int idx,boolean[] visited,List<List<Integer>> rooms) {
         Queue<Integer> q = new LinkedList<>();
         q.add(idx);
-        while(q.size()>0) {
+        while(q.size()>0){
             int front=q.remove();
             for(int key:rooms.get(front)) {
-                if(!visited[key]){
+                if (!visited[key])  {
                     visited[key]=true;
-                    q.add(key);;
-                }    
+                    q.add(key);
+                }
             }
-        }
-         
 
+        }
 
     }
 }
