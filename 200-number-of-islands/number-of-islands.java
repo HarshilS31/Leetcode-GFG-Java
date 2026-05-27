@@ -16,16 +16,13 @@ class Solution {
         return islands;  
     }
     void dfs(char[][] grid, boolean[][] visited, int i, int j)  {
+        int[][] directions ={{1,0},{-1,0},{0,1},{0,-1}};
         visited[i][j]=true;
-        if(i-1>=0 && !visited[i-1][j]  && grid[i-1][j]=='1' ) dfs(grid,visited,i-1,j);
-        if(j-1>=0 && !visited[i][j-1]  && grid[i][j-1]=='1' ) dfs(grid,visited,i,j-1);
-        if(i+1<grid.length && !visited[i+1][j] &&  grid[i+1][j]=='1' ) dfs(grid,visited,i+1,j);
-        if(j+1<grid[0].length && !visited[i][j+1]  && grid[i][j+1]=='1' ) dfs(grid,visited,i,j+1);
-
-
-
-
-
+        for(int[] d:directions) {
+            int i1=i+d[0];
+            int j1=j+d[1];
+            if(i1>=0 && j1>=0 && i1<grid.length && j1<grid[0].length && !visited[i1][j1] && grid[i1][j1]=='1') dfs(grid,visited,i1,j1);
+        }
     }
      
 
