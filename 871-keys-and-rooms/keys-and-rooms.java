@@ -16,9 +16,9 @@ class Solution {
             if(!visited[key]) {
                 visited[key]=true;
                 dfs(rooms,visited,key);
-
             }
         }
+
     }
 }
 
